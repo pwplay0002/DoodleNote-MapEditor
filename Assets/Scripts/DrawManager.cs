@@ -40,6 +40,7 @@ public class DrawManager : MonoBehaviour
             if (Lines.Count <= 0) return;
             Destroy(Lines.Peek().gameObject);
             Lines.Pop();
+
         }
 
         // horizontal vertical
