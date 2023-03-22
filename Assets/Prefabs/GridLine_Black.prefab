@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: -5903677733518486795}
   - component: {fileID: 8547347758599377406}
   m_Layer: 0
-  m_Name: GridLine
-  m_TagString: Untagged
+  m_Name: GridLine_Black
+  m_TagString: BLACK
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
