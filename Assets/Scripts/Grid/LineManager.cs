@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class LineManager : MonoBehaviour
 {
+    [SerializeField] List<Material> Mats;
     [SerializeField] GameObject linePrefab;
     LineRenderer currentLine;
     public static LineManager Instance;
     private static Stack<LineRenderer> Lines = new Stack<LineRenderer>();
+    private static int matIndex = 0;
     void Awake()
     {
         if (Instance == null)
@@ -31,9 +34,6 @@ public class LineManager : MonoBehaviour
     public static void FinishLine(Vector3 position)
     {
         Instance.currentLine = null;
-
-        // Instance.currentLine.SetPosition(1,position);
-        // Instance.currentLine = null;
     }
 
     private void Update()
@@ -43,6 +43,13 @@ public class LineManager : MonoBehaviour
             if (Lines.Count <= 0) return;
             Destroy(Lines.Peek().gameObject);
             Lines.Pop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            linePrefab.GetComponent<LineRenderer>().material = Mats[matIndex % (Mats.Count)];
+            Debug.Log("Change");
+            matIndex++;
         }
     }
 }
