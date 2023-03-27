@@ -1,0 +1,136 @@
+{
+    "Level_Lines": [
+        {
+            "instanceID": -118892
+        },
+        {
+            "instanceID": -118902
+        },
+        {
+            "instanceID": -118912
+        },
+        {
+            "instanceID": -118922
+        },
+        {
+            "instanceID": -118932
+        },
+        {
+            "instanceID": -118942
+        },
+        {
+            "instanceID": -118952
+        },
+        {
+            "instanceID": -118962
+        },
+        {
+            "instanceID": -118988
+        }
+    ],
+    "Level_StartPos": [
+        {
+            "x": -3.0,
+            "y": 2.0,
+            "z": 0.0
+        },
+        {
+            "x": -3.0,
+            "y": 1.0,
+            "z": 0.0
+        },
+        {
+            "x": -3.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "x": -3.0,
+            "y": -1.0,
+            "z": 0.0
+        },
+        {
+            "x": -3.0,
+            "y": -2.0,
+            "z": 0.0
+        },
+        {
+            "x": -3.0,
+            "y": -3.0,
+            "z": 0.0
+        },
+        {
+            "x": 5.0,
+            "y": 4.0,
+            "z": 0.0
+        },
+        {
+            "x": 1.0,
+            "y": 3.0,
+            "z": 0.0
+        },
+        {
+            "x": 1.0,
+            "y": 3.0,
+            "z": 0.0
+        }
+    ],
+    "Level_EndPos": [
+        {
+            "x": 4.0,
+            "y": 2.0,
+            "z": 0.0
+        },
+        {
+            "x": 4.0,
+            "y": 1.0,
+            "z": 0.0
+        },
+        {
+            "x": 4.0,
+            "y": 0.0,
+            "z": 0.0
+        },
+        {
+            "x": 3.0,
+            "y": -1.0,
+            "z": 0.0
+        },
+        {
+            "x": 5.0,
+            "y": -2.0,
+            "z": 0.0
+        },
+        {
+            "x": 4.0,
+            "y": -3.0,
+            "z": 0.0
+        },
+        {
+            "x": 5.0,
+            "y": 4.0,
+            "z": 0.0
+        },
+        {
+            "x": 1.0,
+            "y": 3.0,
+            "z": 0.0
+        },
+        {
+            "x": 1.0,
+            "y": 3.0,
+            "z": 0.0
+        }
+    ],
+    "Level_Mats": [
+        "Pencil_Black (Instance)",
+        "Pencil_Black (Instance)",
+        "Pencil_Red (Instance)",
+        "Pencil_Red (Instance)",
+        "Pencil_Green (Instance)",
+        "Pencil_Blue (Instance)",
+        "Pencil_Blue (Instance)",
+        "Pencil_Blue (Instance)",
+        "Pencil_Blue (Instance)"
+    ]
+}

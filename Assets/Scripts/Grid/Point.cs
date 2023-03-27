@@ -16,6 +16,7 @@ public class Point : MonoBehaviour
         {
             LineManager.UpdateLine(this.transform.position);
         }
+        this.GetComponent<SpriteRenderer>().color = Color.black;
     }
     void OnMouseUp()
     {
@@ -24,5 +25,10 @@ public class Point : MonoBehaviour
             LineManager.FinishLine(this.transform.position);
             pressed = false;
         }
+    }
+
+    private void OnMouseExit()
+    {
+        this.GetComponent<SpriteRenderer>().color = Color.gray;
     }
 }

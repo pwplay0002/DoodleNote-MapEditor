@@ -18,9 +18,3 @@ public class LevelManager : MonoBehaviour
         
     }
 }
-
-public class LevelData
-{
-    public List<Line> lines = new List<Line>();
-    public List<Vector3Int> poses = new List<Vector3Int>();
-}

@@ -5,51 +5,52 @@ using UnityEngine.UIElements;
 
 public class LineManager : MonoBehaviour
 {
-    [SerializeField] List<Material> Mats;
+    public static LineManager instance;
+
+    [SerializeField] List<Material> mats;
     [SerializeField] GameObject linePrefab;
     LineRenderer currentLine;
-    public static LineManager Instance;
-    private static Stack<LineRenderer> Lines = new Stack<LineRenderer>();
+    private static Stack<LineRenderer> lines = new Stack<LineRenderer>();
     private static int matIndex = 0;
     void Awake()
     {
-        if (Instance == null)
-            Instance = this;
+        if (instance == null)
+            instance = this;
         else
             Destroy(this);
+
+        linePrefab.GetComponent<LineRenderer>().material = mats[matIndex];
     }
     public static void StartLine(Vector3 position)
     {
-        GameObject line = GameObject.Instantiate(Instance.linePrefab, Vector3.zero, Quaternion.identity);
-        Instance.currentLine = line.GetComponent<LineRenderer>();
-        Instance.currentLine.positionCount = 2;
-        Instance.currentLine.SetPosition(0, position);
-        Instance.currentLine.SetPosition(1, position);
-        Lines.Push(Instance.currentLine);
+        GameObject line = GameObject.Instantiate(instance.linePrefab, Vector3.zero, Quaternion.identity);
+        instance.currentLine = line.GetComponent<LineRenderer>();
+        instance.currentLine.positionCount = 2;
+        instance.currentLine.SetPosition(0, position);
+        instance.currentLine.SetPosition(1, position);
+        lines.Push(instance.currentLine);
     }
     public static void UpdateLine(Vector3 position)
     {
-        Instance.currentLine.SetPosition(1, position);
+        instance.currentLine.SetPosition(1, position);
     }
     public static void FinishLine(Vector3 position)
     {
-        Instance.currentLine = null;
+        instance.currentLine = null;
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
         {
-            if (Lines.Count <= 0) return;
-            Destroy(Lines.Peek().gameObject);
-            Lines.Pop();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            linePrefab.GetComponent<LineRenderer>().material = Mats[matIndex % (Mats.Count)];
-            Debug.Log("Change");
-            matIndex++;
+            if (lines.Count <= 0) return;
+            Destroy(lines.Peek().gameObject);
+            lines.Pop();
         }
     }
+
+    public GameObject GetLinePrefab(){ return linePrefab; }
+    public List<Material> GetMaterials(){ return mats; }
+    static public LineManager GetInstance() { return instance; }
+    static public Stack<LineRenderer> GetLines() { return lines; }
 }
