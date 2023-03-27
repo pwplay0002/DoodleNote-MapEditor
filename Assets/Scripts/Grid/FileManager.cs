@@ -33,18 +33,18 @@ public class FileManager : MonoBehaviour
 
     public void Load()
     {
-        string fileName = fileNameInputField.text;
-        string filePath = EditorUtility.OpenFilePanel("Overwrite with json", "", "json");
+        //string fileName = fileNameInputField.text;
+        //string filePath = EditorUtility.OpenFilePanel("Overwrite with json", "", "json");
 
-        if (File.Exists(filePath))
-        {
-            string jsonString = File.ReadAllText(filePath);
+        //if (File.Exists(filePath))
+        //{
+        //    string jsonString = File.ReadAllText(filePath);
 
-        }
-        else
-        {
-            Debug.Log("No file");
-        }
+        //}
+        //else
+        //{
+        //    Debug.Log("No file");
+        //}
     }
 }
 
