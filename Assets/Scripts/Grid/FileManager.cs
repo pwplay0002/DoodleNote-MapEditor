@@ -7,6 +7,9 @@ using System.IO;
 
 public class FileManager : MonoBehaviour
 {
+    [SerializeField] private GameObject LinePrefab;
+    [SerializeField] private List<Material> Material_Slots = new List<Material>();
+
     public InputField fileNameInputField;
 
     public void Save()
@@ -33,18 +36,37 @@ public class FileManager : MonoBehaviour
 
     public void Load()
     {
-        //string fileName = fileNameInputField.text;
-        //string filePath = EditorUtility.OpenFilePanel("Overwrite with json", "", "json");
+#if UNITY_EDITOR
 
-        //if (File.Exists(filePath))
-        //{
-        //    string jsonString = File.ReadAllText(filePath);
+        string filePath = UnityEditor.EditorUtility.OpenFilePanel("Overwrite with json", "", "json");
+#endif
 
-        //}
-        //else
-        //{
-        //    Debug.Log("No file");
-        //}
+        if (File.Exists(filePath) && LinePrefab)
+        {
+            string jsonString = File.ReadAllText(filePath);
+            LevelData data = JsonUtility.FromJson<LevelData>(jsonString);
+            if (data.Level_Lines.Count == 0) return;
+
+            for (int i = 0; i < data.Level_Lines.Count; i++)
+            {
+                GameObject line = Instantiate(LinePrefab);
+                line.GetComponent<LineRenderer>().positionCount = 2;
+                line.GetComponent<LineRenderer>().SetPosition(0, data.Level_StartPos[i]);
+                line.GetComponent<LineRenderer>().SetPosition(1, data.Level_EndPos[i]);
+                for(int j = 0; j < Material_Slots.Count; j++)
+                {
+                    if(data.Level_Mats[i] == Material_Slots[j].name + " (Instance)")
+                    {
+                        line.GetComponent<LineRenderer>().material = Material_Slots[j];
+                    }
+                }
+                Debug.Log("Line!");
+            }
+        }
+        else
+        {
+            Debug.Log("No file");
+        }
     }
 }
 
