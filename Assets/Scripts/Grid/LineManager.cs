@@ -44,8 +44,15 @@ public class LineManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
         {
             if (lines.Count <= 0) return;
-            Destroy(lines.Peek().gameObject);
-            lines.Pop();
+            Destroy(lines.Pop().gameObject);
+        }
+    }
+
+    public void ClearLines()
+    {
+        while(lines.Count > 0)
+        {
+            Destroy(lines.Pop());
         }
     }
 

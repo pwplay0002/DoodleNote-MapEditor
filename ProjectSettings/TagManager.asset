@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - BLACK
-  - RED
-  - GREEN
-  - BLUE
+  - Pencil_Black
+  - Pencil_Red
+  - Pencil_Green
+  - Pencil_Blue
   layers:
   - Default
   - TransparentFX
