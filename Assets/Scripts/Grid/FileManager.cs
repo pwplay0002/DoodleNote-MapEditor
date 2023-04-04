@@ -48,10 +48,19 @@ public class FileManager : MonoBehaviour
 
             for (int i = 0; i < data.Level_Lines.Count; i++)
             {
+                // Add Line Renderers
                 GameObject line = Instantiate(LinePrefab);
                 line.GetComponent<LineRenderer>().positionCount = 2;
                 line.GetComponent<LineRenderer>().SetPosition(0, data.Level_StartPos[i]);
                 line.GetComponent<LineRenderer>().SetPosition(1, data.Level_EndPos[i]);
+                
+                // Add Edge Colliders
+                List<Vector2> colliders = new List<Vector2>();
+                colliders.Add(new Vector2(line.GetComponent<LineRenderer>().GetPosition(0).x, line.GetComponent<LineRenderer>().GetPosition(0).y));
+                colliders.Add(new Vector2(line.GetComponent<LineRenderer>().GetPosition(1).x, line.GetComponent<LineRenderer>().GetPosition(1).y));
+                
+                line.GetComponent<EdgeCollider2D>().points = colliders.ToArray();
+
                 for(int j = 0; j < Material_Slots.Count; j++)
                 {
                     if(data.Level_Mats[i] == Material_Slots[j].name + " (Instance)")
@@ -60,7 +69,6 @@ public class FileManager : MonoBehaviour
                         line.tag = Material_Slots[j].name;
                     }
                 }
-                Debug.Log("Line!");
             }
         }
         else
@@ -73,7 +81,7 @@ public class FileManager : MonoBehaviour
 public class LevelData
 {
     public List<LineRenderer> Level_Lines = new List<LineRenderer>();
-    public List<Vector3> Level_StartPos = new List<Vector3>();
-    public List<Vector3> Level_EndPos = new List<Vector3>();
+    public List<Vector2> Level_StartPos = new List<Vector2>();
+    public List<Vector2> Level_EndPos = new List<Vector2>();
     public List<string> Level_Mats = new List<string>();
 }

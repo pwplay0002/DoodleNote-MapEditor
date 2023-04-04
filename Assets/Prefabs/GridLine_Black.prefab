@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6780283215917728936}
   - component: {fileID: 1173392309606805405}
   - component: {fileID: -5903677733518486795}
-  - component: {fileID: 8547347758599377406}
+  - component: {fileID: -1964681936844969253}
   m_Layer: 0
   m_Name: GridLine_Black
   m_TagString: BLACK
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3332079574731616880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5393748, y: -0.50593215, z: 0.024117624}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54,7 +54,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 888502638a2e6a446b010e4bd82ec0f6, type: 2}
+  - {fileID: 2100000, guid: 0b61c8afce0ac214e8091ccc1eda5143, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -138,14 +138,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3332079574731616880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3386505ea0c1314582c02e203d43e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 1173392309606805405}
-  _collider: {fileID: 8547347758599377406}
---- !u!68 &8547347758599377406
+  _collider: {fileID: -1964681936844969253}
+--- !u!68 &-1964681936844969253
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
