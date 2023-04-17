@@ -1,0 +1,106 @@
+{
+    "Level_Lines": [
+        {
+            "instanceID": -159606
+        },
+        {
+            "instanceID": -159616
+        },
+        {
+            "instanceID": -159626
+        },
+        {
+            "instanceID": -159636
+        },
+        {
+            "instanceID": -159646
+        },
+        {
+            "instanceID": -159656
+        },
+        {
+            "instanceID": -159666
+        },
+        {
+            "instanceID": -159676
+        }
+    ],
+    "Level_StartPos": [
+        {
+            "x": -2.0,
+            "y": 1.0
+        },
+        {
+            "x": -2.0,
+            "y": 0.0
+        },
+        {
+            "x": -2.0,
+            "y": -1.0
+        },
+        {
+            "x": 1.0,
+            "y": -1.0
+        },
+        {
+            "x": 1.0,
+            "y": 0.0
+        },
+        {
+            "x": 3.0,
+            "y": -1.0
+        },
+        {
+            "x": 3.0,
+            "y": 0.0
+        },
+        {
+            "x": 3.0,
+            "y": 1.0
+        }
+    ],
+    "Level_EndPos": [
+        {
+            "x": 1.0,
+            "y": 1.0
+        },
+        {
+            "x": 0.0,
+            "y": 0.0
+        },
+        {
+            "x": 0.0,
+            "y": -1.0
+        },
+        {
+            "x": 2.0,
+            "y": -1.0
+        },
+        {
+            "x": 2.0,
+            "y": 0.0
+        },
+        {
+            "x": 4.0,
+            "y": -1.0
+        },
+        {
+            "x": 4.0,
+            "y": 0.0
+        },
+        {
+            "x": 3.0,
+            "y": 1.0
+        }
+    ],
+    "Level_Mats": [
+        "M_BlackLine (Instance)",
+        "M_RedLine (Instance)",
+        "M_GreenLine (Instance)",
+        "M_GreenRoundLine (Instance)",
+        "M_BlueRoundLine (Instance)",
+        "M_YellowRoundLine (Instance)",
+        "M_OrangeRoundLine (Instance)",
+        "M_OrangeRoundLine (Instance)"
+    ]
+}

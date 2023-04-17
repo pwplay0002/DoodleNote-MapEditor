@@ -3,21 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/*-------------------------------------------
+ *      LineManager - Singleton Class
+-------------------------------------------*/
 public class LineManager : MonoBehaviour
 {
     public static LineManager instance;
 
     [SerializeField] List<Material> mats;
+    [SerializeField] List<Material> rMats;
     [SerializeField] GameObject linePrefab;
     LineRenderer currentLine;
     private static Stack<LineRenderer> lines = new Stack<LineRenderer>();
     private static int matIndex = 0;
     void Awake()
     {
+        // Singleton
         if (instance == null)
             instance = this;
         else
-            Destroy(this);
+            Destroy(this.gameObject);
 
         linePrefab.GetComponent<LineRenderer>().material = mats[matIndex];
     }
@@ -58,6 +63,7 @@ public class LineManager : MonoBehaviour
 
     public GameObject GetLinePrefab(){ return linePrefab; }
     public List<Material> GetMaterials(){ return mats; }
+    public List<Material> GetRMaterials(){ return rMats; }
     static public LineManager GetInstance() { return instance; }
     static public Stack<LineRenderer> GetLines() { return lines; }
 }

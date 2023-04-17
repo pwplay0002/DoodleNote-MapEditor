@@ -8,7 +8,7 @@ public class Grid : MonoBehaviour
     [SerializeField] GameObject dotPrefab;
     [SerializeField] private int width = 20;
     [SerializeField] private int height = 10;
-    [SerializeField] private List<GameObject> dots = new List<GameObject>();
+    private List<GameObject> dots = new List<GameObject>();
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class Grid : MonoBehaviour
             {
                 dotPos.x = x;
                 dotPos.y = y;
-                GameObject gameObject1 = Instantiate(dotPrefab, dotPos, Quaternion.identity);
+                dots.Add(Instantiate(dotPrefab, dotPos, Quaternion.identity));
             }
         }
     }

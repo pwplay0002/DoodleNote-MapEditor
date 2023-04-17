@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEditor;
 using System.IO;
 
+/*-------------------------------------------
+ *              ObjectManager
+-------------------------------------------*/
 public class FileManager : MonoBehaviour
 {
     [SerializeField] private GameObject LinePrefab;

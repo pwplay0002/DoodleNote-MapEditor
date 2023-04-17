@@ -7,6 +7,7 @@ public class Point : MonoBehaviour
     public static bool pressed;
     void OnMouseDown()
     {
+        if (!SlotBar.isCurrentLine) return;
         pressed = true;
         LineManager.StartLine(this.transform.position);
     }
