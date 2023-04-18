@@ -317,6 +317,8 @@ MonoBehaviour:
   - {fileID: 6980194377775313031, guid: f4810611e5993fc4e95b6ab556e44b27, type: 3}
   - {fileID: 1611742994302489617, guid: 40c5a8dd19236f24baaa8406305fdbf7, type: 3}
   - {fileID: 4938623228630915445, guid: d07656f4b55b25345af01d3e367e31c0, type: 3}
+  objNames: []
+  objPos: []
 --- !u!4 &58875517
 Transform:
   m_ObjectHideFlags: 0
@@ -1335,6 +1337,18 @@ MonoBehaviour:
       - m_Target: {fileID: 906269477}
         m_TargetAssemblyTypeName: LineManager, Assembly-CSharp
         m_MethodName: ClearLines
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 58875516}
+        m_TargetAssemblyTypeName: ObjectManager, Assembly-CSharp
+        m_MethodName: ClearObjects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
