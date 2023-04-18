@@ -55,15 +55,16 @@ public class LineManager : MonoBehaviour
 
     public void ClearLines()
     {
-        while(lines.Count > 0)
+        while (lines.Count > 0)
         {
             Destroy(lines.Pop());
         }
     }
 
-    public GameObject GetLinePrefab(){ return linePrefab; }
-    public List<Material> GetMaterials(){ return mats; }
-    public List<Material> GetRMaterials(){ return rMats; }
+    public GameObject GetLinePrefab() { return linePrefab; }
+    public List<Material> GetMaterials() { return mats; }
+    public List<Material> GetRMaterials() { return rMats; }
     static public LineManager GetInstance() { return instance; }
     static public Stack<LineRenderer> GetLines() { return lines; }
 }
+

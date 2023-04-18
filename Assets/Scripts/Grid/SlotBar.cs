@@ -30,11 +30,11 @@ public class SlotBar : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) OnClickedLineSlotR();
 
         // Objects
-        if      (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedObjectSlot1();
+        if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedObjectSlot1();
         else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedObjectSlot2();
         else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha3)) OnClickedObjectSlot3();
         else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha4)) OnClickedObjectSlot4();
-        
+
         // Lines
         else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedLineSlot1();
         else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedLineSlot2();

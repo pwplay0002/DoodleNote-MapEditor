@@ -11,27 +11,30 @@ public class ObjectManager : MonoBehaviour
 
     private GameObject currentObj;
     [SerializeField] List<GameObject> objects;
+    public List<string> objNames = new List<string>();
+    public List<Vector2> objPos = new List<Vector2>();
 
+    private bool isSelected = false;
     private Vector2 mousePos;
     private void Awake()
     {
         // Singleton
-        if (instance == null) 
+        if (instance == null)
             instance = this;
-        else 
+        else
             Destroy(this.gameObject);
     }
 
     private void Update()
     {
         // Is Object
-        if(!SlotBar.isCurrentLine)
+        if (!SlotBar.isCurrentLine)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             switch (SlotBar.GetCurrentObjectSlot())
             {
-                case 0: 
-                    { 
+                case 0:
+                    {
                         if (objects.Count >= 1)
                         {
                             if (SlotBar.isClickedObject == true)
@@ -41,11 +44,11 @@ public class ObjectManager : MonoBehaviour
                             }
                             else
                             {
-                                if(currentObj != null)
-                                OnMouseMove(currentObj);
+                                if (currentObj != null)
+                                    OnMouseMove(currentObj);
                             }
                         }
-                    };break;
+                    }; break;
                 case 1:
                     {
                         if (objects.Count >= 2)
@@ -96,13 +99,20 @@ public class ObjectManager : MonoBehaviour
                     }; break;
             }
 
-            if (Input.GetMouseButtonDown(0)) { currentObj.transform.position = mousePos; SlotBar.isCurrentLine = true; }
+            if (isSelected == true && Input.GetMouseButtonDown(0))
+            {
+                currentObj.transform.position = mousePos; SlotBar.isCurrentLine = true;
+                objNames.Add(currentObj.gameObject.name);
+                objPos.Add(currentObj.gameObject.transform.position);
+                isSelected = false;
+            }
         }
     }
 
     private void OnMouseMove(GameObject gameObj)
     {
         gameObj.transform.position = mousePos;
+        isSelected = true;
     }
 
     static public ObjectManager GetInstance() { return instance; }

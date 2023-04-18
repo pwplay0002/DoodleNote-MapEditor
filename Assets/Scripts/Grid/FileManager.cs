@@ -6,7 +6,7 @@ using UnityEditor;
 using System.IO;
 
 /*-------------------------------------------
- *              ObjectManager
+ *              FileManager
 -------------------------------------------*/
 public class FileManager : MonoBehaviour
 {
@@ -33,6 +33,12 @@ public class FileManager : MonoBehaviour
             stk.Pop();
         }
 
+        for (int i = 0; i < ObjectManager.GetInstance().objPos.Count; i++)
+        {
+            levelData.Level_ObjectName.Add(ObjectManager.GetInstance().objNames[i]);
+            levelData.Level_ObjPos.Add(ObjectManager.GetInstance().objPos[i]);
+        }
+
         string jsonString = JsonUtility.ToJson(levelData, true);
         Debug.Log(jsonString);
         File.WriteAllText(filePath, jsonString);
@@ -56,17 +62,17 @@ public class FileManager : MonoBehaviour
                 line.GetComponent<LineRenderer>().positionCount = 2;
                 line.GetComponent<LineRenderer>().SetPosition(0, data.Level_StartPos[i]);
                 line.GetComponent<LineRenderer>().SetPosition(1, data.Level_EndPos[i]);
-                
+
                 // Add Edge Colliders
                 List<Vector2> colliders = new List<Vector2>();
                 colliders.Add(new Vector2(line.GetComponent<LineRenderer>().GetPosition(0).x, line.GetComponent<LineRenderer>().GetPosition(0).y));
                 colliders.Add(new Vector2(line.GetComponent<LineRenderer>().GetPosition(1).x, line.GetComponent<LineRenderer>().GetPosition(1).y));
-                
+
                 line.GetComponent<EdgeCollider2D>().points = colliders.ToArray();
 
-                for(int j = 0; j < Material_Slots.Count; j++)
+                for (int j = 0; j < Material_Slots.Count; j++)
                 {
-                    if(data.Level_Mats[i] == Material_Slots[j].name + " (Instance)")
+                    if (data.Level_Mats[i] == Material_Slots[j].name + " (Instance)")
                     {
                         line.GetComponent<LineRenderer>().material = Material_Slots[j];
                         line.tag = Material_Slots[j].name;
@@ -87,4 +93,6 @@ public class LevelData
     public List<Vector2> Level_StartPos = new List<Vector2>();
     public List<Vector2> Level_EndPos = new List<Vector2>();
     public List<string> Level_Mats = new List<string>();
+    public List<string> Level_ObjectName = new List<string>();
+    public List<Vector2> Level_ObjPos = new List<Vector2>();
 }
