@@ -125,6 +125,9 @@ public class ObjectManager : MonoBehaviour
             Destroy(obj[i].gameObject);
         }
         obj.Clear();
+        objects.Clear();
+        objNames.Clear();
+        objPos.Clear();
     }
 
     public List<GameObject> GetObj() { return obj; }
