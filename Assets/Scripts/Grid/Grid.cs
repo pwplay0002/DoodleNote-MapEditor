@@ -14,9 +14,9 @@ public class Grid : MonoBehaviour
     {
         Vector2 dotPos = new Vector2();
 
-        for (int x = -20; x < width; x++)
+        for (float x = -20; x < width; x+=0.5f)
         {
-            for (int y = -10; y < height; y++)
+            for (float y = -10; y < height; y+=0.5f)
             {
                 dotPos.x = x;
                 dotPos.y = y;

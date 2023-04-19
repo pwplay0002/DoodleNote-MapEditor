@@ -10,6 +10,7 @@ public class LineManager : MonoBehaviour
 {
     public static LineManager instance;
 
+    [SerializeField] int lineCnt;
     [SerializeField] List<Material> mats;
     [SerializeField] List<Material> rMats;
     [SerializeField] GameObject linePrefab;
@@ -51,13 +52,15 @@ public class LineManager : MonoBehaviour
             if (lines.Count <= 0) return;
             Destroy(lines.Pop().gameObject);
         }
+        lineCnt = lines.Count;
     }
 
     public void ClearLines()
     {
         while (lines.Count > 0)
         {
-            Destroy(lines.Pop());
+            Destroy(lines.Peek());
+            lines.Pop();
         }
     }
 

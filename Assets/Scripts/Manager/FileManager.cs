@@ -23,6 +23,7 @@ public class FileManager : MonoBehaviour
 
         LevelData levelData = new LevelData();
         Stack<LineRenderer> stk = new Stack<LineRenderer>(LineManager.GetLines());
+
         while (stk.Count > 0)
         {
             levelData.Level_Lines.Add(stk.Peek());

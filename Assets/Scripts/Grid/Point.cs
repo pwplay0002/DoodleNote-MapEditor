@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Point : MonoBehaviour
 {
@@ -8,8 +9,11 @@ public class Point : MonoBehaviour
     void OnMouseDown()
     {
         if (!SlotBar.isCurrentLine) return;
-        pressed = true;
-        LineManager.StartLine(this.transform.position);
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            pressed = true;
+            LineManager.StartLine(this.transform.position);
+        }
     }
     void OnMouseEnter()
     {

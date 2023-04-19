@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SlotBar : MonoBehaviour
 {
@@ -16,6 +17,13 @@ public class SlotBar : MonoBehaviour
     [SerializeField] public GameObject Object_Slot2;
     [SerializeField] public GameObject Object_Slot3;
     [SerializeField] public GameObject Object_Slot4;
+    [SerializeField] public GameObject Object_Slot5;
+    [SerializeField] public GameObject Object_Slot6;
+    [SerializeField] public GameObject Object_Slot7;
+    [SerializeField] public GameObject Object_Slot8;
+    [SerializeField] public GameObject Object_Slot9;
+    [SerializeField] public GameObject Object_Slot10;
+    [SerializeField] public GameObject Object_Slot11;
 
     private bool isRoundLine = false;
     private uint currLineNum = 1;
@@ -29,21 +37,31 @@ public class SlotBar : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R)) OnClickedLineSlotR();
 
-        // Objects
-        if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedObjectSlot1();
-        else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedObjectSlot2();
-        else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha3)) OnClickedObjectSlot3();
-        else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha4)) OnClickedObjectSlot4();
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            // Objects
+            if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedObjectSlot1();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedObjectSlot2();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha3)) OnClickedObjectSlot3();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha4)) OnClickedObjectSlot4();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha5)) OnClickedObjectSlot5();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha6)) OnClickedObjectSlot6();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha7)) OnClickedObjectSlot7();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha8)) OnClickedObjectSlot8();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha9)) OnClickedObjectSlot9();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha0)) OnClickedObjectSlot10();
+            else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Minus)) OnClickedObjectSlot11();
 
-        // Lines
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedLineSlot1();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedLineSlot2();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha3)) OnClickedLineSlot3();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha4)) OnClickedLineSlot4();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha5)) OnClickedLineSlot5();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha6)) OnClickedLineSlot6();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha7)) OnClickedLineSlot7();
-        else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha8)) OnClickedLineSlotR();
+            // Lines
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedLineSlot1();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedLineSlot2();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha3)) OnClickedLineSlot3();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha4)) OnClickedLineSlot4();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha5)) OnClickedLineSlot5();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha6)) OnClickedLineSlot6();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha7)) OnClickedLineSlot7();
+            else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha8)) OnClickedLineSlotR();
+        }
     }
 
     public void OnClickedLineSlot1()
@@ -164,6 +182,55 @@ public class SlotBar : MonoBehaviour
     public void OnClickedObjectSlot4()
     {
         currentObjectSlot = 3;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot5()
+    {
+        currentObjectSlot = 4;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot6()
+    {
+        currentObjectSlot = 5;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot7()
+    {
+        currentObjectSlot = 6;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot8()
+    {
+        currentObjectSlot = 7;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot9()
+    {
+        currentObjectSlot = 8;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot10()
+    {
+        currentObjectSlot = 9;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedObjectSlot11()
+    {
+        currentObjectSlot = 10;
         isCurrentLine = false;
         isClickedObject = true;
     }
