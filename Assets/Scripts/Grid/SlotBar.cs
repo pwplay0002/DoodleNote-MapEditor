@@ -25,6 +25,13 @@ public class SlotBar : MonoBehaviour
     [SerializeField] public GameObject Object_Slot10;
     [SerializeField] public GameObject Object_Slot11;
 
+    [SerializeField] public GameObject Crayon_Slot12;
+    [SerializeField] public GameObject Crayon_Slot13;
+    [SerializeField] public GameObject Crayon_Slot14;
+    [SerializeField] public GameObject Crayon_Slot15;
+    [SerializeField] public GameObject Crayon_Slot16;
+    [SerializeField] public GameObject Crayon_Slot17;
+
     private bool isRoundLine = false;
     private uint currLineNum = 1;
     static public bool isClickedObject = false;
@@ -51,6 +58,12 @@ public class SlotBar : MonoBehaviour
             else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha9)) OnClickedObjectSlot9();
             else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha0)) OnClickedObjectSlot10();
             else if (Input.GetKey("`") && Input.GetKeyDown(KeyCode.Minus)) OnClickedObjectSlot11();
+            else if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedCrayonSlot12();
+            else if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha2)) OnClickedCrayonSlot13();
+            else if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha3)) OnClickedCrayonSlot14();
+            else if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha4)) OnClickedCrayonSlot15();
+            else if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha5)) OnClickedCrayonSlot16();
+            else if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha6)) OnClickedCrayonSlot17();
 
             // Lines
             else if (!Input.GetKey("`") && Input.GetKeyDown(KeyCode.Alpha1)) OnClickedLineSlot1();
@@ -231,6 +244,48 @@ public class SlotBar : MonoBehaviour
     public void OnClickedObjectSlot11()
     {
         currentObjectSlot = 10;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedCrayonSlot12()
+    {
+        currentObjectSlot = 11;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedCrayonSlot13()
+    {
+        currentObjectSlot = 12;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedCrayonSlot14()
+    {
+        currentObjectSlot = 13;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedCrayonSlot15()
+    {
+        currentObjectSlot = 14;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedCrayonSlot16()
+    {
+        currentObjectSlot = 15;
+        isCurrentLine = false;
+        isClickedObject = true;
+    }
+
+    public void OnClickedCrayonSlot17()
+    {
+        currentObjectSlot = 16;
         isCurrentLine = false;
         isClickedObject = true;
     }
