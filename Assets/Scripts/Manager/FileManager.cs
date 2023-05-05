@@ -38,6 +38,7 @@ public class FileManager : MonoBehaviour
         {
             levelData.Level_ObjectName.Add(ObjectManager.GetInstance().objNames[i]);
             levelData.Level_ObjPos.Add(ObjectManager.GetInstance().objPos[i]);
+            levelData.Level_ObjRot.Add(ObjectManager.GetInstance().objRot[i]);
         }
 
         string jsonString = JsonUtility.ToJson(levelData, true);
@@ -96,4 +97,5 @@ public class LevelData
     public List<string> Level_Mats = new List<string>();
     public List<string> Level_ObjectName = new List<string>();
     public List<Vector2> Level_ObjPos = new List<Vector2>();
+    public List<float> Level_ObjRot = new List<float>();
 }

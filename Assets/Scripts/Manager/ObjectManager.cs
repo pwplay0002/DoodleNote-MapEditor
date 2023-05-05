@@ -13,6 +13,7 @@ public class ObjectManager : MonoBehaviour
     [SerializeField] List<GameObject> objects;
     public List<string> objNames = new List<string>();
     public List<Vector2> objPos = new List<Vector2>();
+    public List<float> objRot = new List<float>();
 
     private List<GameObject> obj = new List<GameObject>();
     private bool isSelected = false;
@@ -38,6 +39,7 @@ public class ObjectManager : MonoBehaviour
             {
                 if (SlotBar.isClickedObject == true)
                 {
+                    if (currentObj) Destroy(currentObj);
                     currentObj = Instantiate(objects[slotNum], mousePos, Quaternion.identity);
                     SlotBar.isClickedObject = false;
                 }
@@ -53,14 +55,20 @@ public class ObjectManager : MonoBehaviour
                 currentObj.transform.position = mousePos; SlotBar.isCurrentLine = true;
                 objNames.Add(currentObj.gameObject.name);
                 objPos.Add(currentObj.gameObject.transform.position);
+                objRot.Add(currentObj.gameObject.transform.rotation.eulerAngles.z);
                 obj.Add(currentObj.gameObject);
                 isSelected = false;
+                currentObj = null;
             }
         }
     }
 
     private void OnMouseMove(GameObject gameObj)
     {
+        if (Input.GetKeyDown(KeyCode.R) && gameObj)
+        {
+            gameObj.transform.rotation = Quaternion.Euler(new Vector3(0, 0, gameObj.transform.rotation.eulerAngles.z + 90));
+        }
         gameObj.transform.position = mousePos;
         isSelected = true;
     }
@@ -74,6 +82,7 @@ public class ObjectManager : MonoBehaviour
         obj.Clear();
         objNames.Clear();
         objPos.Clear();
+        objRot.Clear();
     }
 
     public List<GameObject> GetObj() { return obj; }

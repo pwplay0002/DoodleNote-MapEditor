@@ -42,7 +42,7 @@ public class SlotBar : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) OnClickedLineSlotR();
+        if (Input.GetKeyDown(KeyCode.R) && isCurrentLine == true) OnClickedLineSlotR();
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
